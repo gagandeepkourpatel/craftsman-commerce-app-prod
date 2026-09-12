@@ -11,7 +11,17 @@ current_time = datetime.now(ist).isoformat()
 # Set your DynamoDB table name
 table_name = 'bitcoin_price_storer'
 # Set the REST API endpoint
-api_url = 'https://api.coinbase.com/v2/prices/btc-usd/spot'
+# Define the API URL
+url = "https://example.com"
+
+# The header serves as the 'key', and your unique token is the 'value'
+headers = {
+    "X-API-KEY": "secret12345"
+}
+
+# Make the request
+response = requests.get(url, headers=headers)
+print(response.json())
 
 # Create a DynamoDB client
 dynamodb = boto3.client('dynamodb',region_name=region_name)
